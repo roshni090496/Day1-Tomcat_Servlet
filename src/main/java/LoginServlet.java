@@ -52,7 +52,7 @@ public class LoginServlet extends HttpServlet{
          * 			 Name starts with Cap and has minimum 3 characters
          */
 
-        //String regexName = "^[A-Z]{1}[a-zA-Z]{2,}$";
+        String regexName = "^[A-Z]{1}[a-zA-Z]{2,}$";
        /*
 		 * Purpose : Validate password using Regular Expression
 		  			 Rule1 – minimum 8 Characters
@@ -63,7 +63,7 @@ public class LoginServlet extends HttpServlet{
 
         //String regexPassword = "^(?=.*[0-9])(?=.*[@#$%^&+=])(?=.*[a-z])(?=.*[A-Z]){8,}$";
 
-        if(userID.equals(user)  && password.equals(pwd)) {
+        if(userID.equals(user)  && userID.matches(regexName) && password.equals(pwd)) {
             request.setAttribute("user", user);
             request.getRequestDispatcher("LoginSuccess.jsp").forward(request, response);
         } else {
