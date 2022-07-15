@@ -61,9 +61,9 @@ public class LoginServlet extends HttpServlet{
 					 Rule4 – Has exactly 1 Special Character
 		 */
 
-        //String regexPassword = "^(?=.*[0-9])(?=.*[@#$%^&+=])(?=.*[a-z])(?=.*[A-Z]){8,}$";
+        String regexPassword = "^(?=.*[0-9])(?=.*[@#$%^&+=])(?=.*[a-z])(?=.*[A-Z]){8,}$";
 
-        if(userID.equals(user)  && userID.matches(regexName) && password.equals(pwd)) {
+        if(userID.equals(user)  && userID.matches(regexName) && password.equals(pwd) && userID.matches(regexPassword)) {
             request.setAttribute("user", user);
             request.getRequestDispatcher("LoginSuccess.jsp").forward(request, response);
         } else {
